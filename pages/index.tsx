@@ -7,6 +7,7 @@ import Banner from "../src/components/page/Banner";
 
 const Home: NextPage = () => {
   const [users, setUsers] = useState([]);
+  console.log("Process.env.PROD =", process.env.PROD);
 
   useEffect(() => {
     const root = process.env.PROD
