@@ -9,9 +9,10 @@ const Home: NextPage = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    const root = false
-      ? "http://localhost:3000/"
-      : "https://test-pilates.herokuapp.com/";
+    const root = process.env.PROD
+      ? "https://test-pilates.herokuapp.com/"
+      : "http://localhost:3000/";
+
     fetch(root + "/api/users")
       .then((res) => res.json())
       .then(({ users }) => {
