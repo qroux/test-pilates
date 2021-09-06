@@ -10,8 +10,8 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     const root = process.env.PROD
-      ? "https://test-pilates.herokuapp.com/"
-      : "http://localhost:3000/";
+      ? "https://test-pilates.herokuapp.com"
+      : "http://localhost:3000";
 
     fetch(root + "/api/users")
       .then((res) => res.json())
