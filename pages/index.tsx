@@ -7,10 +7,10 @@ import Banner from "../src/components/page/Banner";
 
 const Home: NextPage = () => {
   const [users, setUsers] = useState([]);
-  console.log("Process.env.PROD =", process.env.PROD);
+  console.log("process.env.production =", process.env.production);
 
   useEffect(() => {
-    const root = process.env.PROD
+    const root = process.env.production
       ? "https://test-pilates.herokuapp.com"
       : "http://localhost:3000";
 
