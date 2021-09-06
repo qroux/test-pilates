@@ -21,6 +21,7 @@ const Home: NextPage = () => {
 
   const renderUsers = () => {
     return users.map((user, id) => {
+      // @ts-ignore
       return <Typography variant="body1">{user.name}</Typography>;
     });
   };
