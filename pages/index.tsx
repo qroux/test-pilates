@@ -7,19 +7,21 @@ import Banner from "../src/components/page/Banner";
 
 const Home: NextPage = () => {
   const [users, setUsers] = useState([]);
-  console.log("process.env.production =", process.env.production);
 
   useEffect(() => {
-    const root = process.env.production
-      ? "https://test-pilates.herokuapp.com"
-      : "http://localhost:3000";
+    console.log("process.env.NODE_ENV =", process.env.NODE_ENV);
+
+    const root =
+      process.env.NODE_ENV === "production"
+        ? "https://test-pilates.herokuapp.com"
+        : "http://localhost:3000";
 
     fetch(root + "/api/users")
       .then((res) => res.json())
       .then(({ users }) => {
         setUsers(users);
       });
-  });
+  }, []);
 
   const renderUsers = () => {
     return users.map((user, id) => {
