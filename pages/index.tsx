@@ -3,7 +3,7 @@ import { Container, Typography } from "@material-ui/core";
 import type { NextPage } from "next";
 
 import fetchApi from "../src/api/fetchApi";
-import Banner from "../src/components/page/Banner";
+import Banner from "../src/components/layout/Banner";
 import Presentation from "../src/components/section/Presentation";
 import Planning from "../src/components/section/Planning";
 import Pricing from "../src/components/section/Pricing";
