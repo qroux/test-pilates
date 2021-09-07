@@ -15,7 +15,7 @@ const Home: NextPage = () => {
         setUsers(response.data.users);
         setError(null);
       })
-      .catch((err) => setError(err));
+      .catch((err) => setError(err.response.data));
   }, []);
 
   const renderUsers = () => {
