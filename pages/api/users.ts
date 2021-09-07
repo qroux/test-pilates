@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import fetchUsers from "../../services/fetchUsers";
+import { fetchUsers } from "../../services/fetchUsers";
 
 type Data = {
   users: any;
