@@ -1,6 +1,6 @@
 import clientPromise from "../lib/mongodb";
 
-const fetchUsers = async () => {
+export const fetchUsers = async () => {
   const db = await clientPromise;
 
   const users = db
@@ -13,5 +13,3 @@ const fetchUsers = async () => {
 
   return users;
 };
-
-export default fetchUsers;

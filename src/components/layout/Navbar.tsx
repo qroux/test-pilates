@@ -33,7 +33,7 @@ const Navbar = () => {
   const renderButtons = () => {
     return buttons.map((btn, id) => {
       return (
-        <Link href={"/"} passHref key={id}>
+        <Link href={btn.path} passHref key={id}>
           <Button style={{ padding: "0 1rem", height: "3rem" }}>
             <Typography
               variant="body1"
