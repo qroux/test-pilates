@@ -4,50 +4,47 @@ import type { NextPage } from "next";
 
 import fetchApi from "../src/api/fetchApi";
 import Banner from "../src/components/page/Banner";
+import Presentation from "../src/components/section/Presentation";
+import Planning from "../src/components/section/Planning";
+import Pricing from "../src/components/section/Pricing";
 
 const Home: NextPage = () => {
-  const [users, setUsers] = useState([]);
-  const [error, setError] = useState(null);
+  // const [users, setUsers] = useState([]);
+  // const [error, setError] = useState(null);
 
-  useEffect(() => {
-    fetchApi("/api/users")
-      .then((response) => {
-        setUsers(response.data.users);
-        setError(null);
-      })
-      .catch((err) => {
-        setError(err);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetchApi("/api/users")
+  //     .then((response) => {
+  //       setUsers(response.data.users);
+  //       setError(null);
+  //     })
+  //     .catch((err) => {
+  //       setError(err);
+  //     });
+  // }, []);
 
-  const renderUsers = () => {
-    return users.map((user, id) => {
-      return (
-        <Typography variant="body1" key={id}>
-          {/* @ts-ignore */}
-          {user.name}
-        </Typography>
-      );
-    });
-  };
+  // const renderUsers = () => {
+  //   return users.map((user, id) => {
+  //     return (
+  //       <Typography variant="body1" key={id}>
+  //         {/* @ts-ignore */}
+  //         {user.name}
+  //       </Typography>
+  //     );
+  //   });
+  // };
 
   return (
     <div>
       <Banner />
 
-      <Container maxWidth="lg" style={{ border: "1px solid red" }}>
-        <Typography variant="h3">
-          Nombre de participants : {users.length}
-        </Typography>
-        {error ? (
-          <Typography variant="body1" color="error">
-            error: {JSON.stringify(error)}
-          </Typography>
-        ) : null}
-
-        <Typography variant="h5">Liste des participants</Typography>
-        {renderUsers()}
-      </Container>
+      <main>
+        <Container maxWidth="lg">
+          <Presentation />
+          <Planning />
+          <Pricing />
+        </Container>
+      </main>
     </div>
   );
 };

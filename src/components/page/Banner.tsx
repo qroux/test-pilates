@@ -11,19 +11,19 @@ const Banner = () => {
         justifyContent: "center",
         alignItems: "center",
         backgroundImage:
-          "url(https://images.unsplash.com/photo-1576502200916-3808e07386a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3746&q=80)",
+          "url(https://images.unsplash.com/photo-1561211919-1947abbbb35b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3751&q=80)",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
       <div>
-        <Typography variant="h1" style={{ color: "white" }}>
+        <Typography
+          variant="h1"
+          style={{ fontWeight: "bold" }}
+          color="textSecondary"
+        >
           Test Banner
         </Typography>
-        <Typography variant="h3" color="primary">
-          autre
-        </Typography>
-        <strong>Test Banner</strong>
       </div>
     </div>
   );
