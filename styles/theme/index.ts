@@ -22,8 +22,8 @@ export const paletteColorsLight = {
   // secondary: "#ffbf99",
   error: "#E44C65",
   background: "#f2f2f2",
-  textPrimary: "#474747",
-  textSecondary: "#18a18a",
+  textPrimary: "#000000",
+  textSecondary: "#ffffff",
   // paper: "#e6e6e6",
 };
 
@@ -31,12 +31,11 @@ export const darkTheme = (dark: boolean): ThemeOptions => {
   const paletteColors = dark ? paletteColorsDark : paletteColorsLight;
 
   return createTheme({
-    typography: {
-      fontFamily: ["Roboto", "Montserrat"].join(","),
-    },
     palette: {
       type: dark ? "dark" : "light",
-
+      typography: {
+        fontFamily: "Lato",
+      },
       primary: {
         main: paletteColors.primary,
       },
@@ -58,17 +57,20 @@ export const darkTheme = (dark: boolean): ThemeOptions => {
         light: paletteColorsNeutral.light,
       },
     },
-    // overrides: {
-    //   MuiCssBaseline: {
-    //     "@global": {
-    //       body: {
-    //         transition: "all 0.3s linear",
-    //       },
-    //       strong: {
-    //         color: paletteColors.secondary,
-    //       },
-    //     },
-    //   },
-    // },
+    overrides: {
+      MuiCssBaseline: {
+        "@global": {
+          body: {
+            transition: "all 0.3s linear",
+          },
+          strong: {
+            color: paletteColors.secondary,
+          },
+          h1: {
+            fontFamily: "Playfair Display!important",
+          },
+        },
+      },
+    },
   });
 };

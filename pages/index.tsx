@@ -1,18 +1,50 @@
-import { Container } from "@material-ui/core";
+import React, { useEffect, useState } from "react";
+import { Container, Typography } from "@material-ui/core";
 import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
-import React from "react";
+
+import fetchApi from "../src/api/fetchApi";
 import Banner from "../src/components/page/Banner";
+import Presentation from "../src/components/section/Presentation";
+import Planning from "../src/components/section/Planning";
+import Pricing from "../src/components/section/Pricing";
 
 const Home: NextPage = () => {
+  // const [users, setUsers] = useState([]);
+  // const [error, setError] = useState(null);
+
+  // useEffect(() => {
+  //   fetchApi("/api/users")
+  //     .then((response) => {
+  //       setUsers(response.data.users);
+  //       setError(null);
+  //     })
+  //     .catch((err) => {
+  //       setError(err);
+  //     });
+  // }, []);
+
+  // const renderUsers = () => {
+  //   return users.map((user, id) => {
+  //     return (
+  //       <Typography variant="body1" key={id}>
+  //         {/* @ts-ignore */}
+  //         {user.name}
+  //       </Typography>
+  //     );
+  //   });
+  // };
+
   return (
     <div>
       <Banner />
 
-      <Container maxWidth="lg" style={{ border: "1px solid red" }}>
-        Test
-      </Container>
+      <main>
+        <Container maxWidth="lg">
+          <Presentation />
+          <Planning />
+          <Pricing />
+        </Container>
+      </main>
     </div>
   );
 };

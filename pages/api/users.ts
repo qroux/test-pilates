@@ -2,12 +2,16 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
 type Data = {
-  name: string;
+  users: any;
 };
 
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  res.status(200).json({ name: "Modifié par moi" });
+  fetch("https://jsonplaceholder.typicode.com/users")
+    .then((res) => res.json())
+    .then((response) => {
+      res.status(200).json({ users: response });
+    });
 }
