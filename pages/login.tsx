@@ -7,12 +7,13 @@ import Banner from "../src/components/layout/Banner";
 import Presentation from "../src/components/section/Presentation";
 import Planning from "../src/components/section/Planning";
 import Pricing from "../src/components/section/Pricing";
-import clientPromise from "../lib/mongodb";
+
+import { fetchUsers } from "../services/fetchUsers";
 
 // @ts-ignore
-const Home: NextPage = ({ isConnected }: { isConnected: any }) => {
+const Login: NextPage = ({ users }: { users: any[] }) => {
   // const [users, setUsers] = useState([]);
-  // const [error, setError] = useState(null);
+  const [error, setError] = useState(null);
 
   // useEffect(() => {
   //   fetchApi("/api/users")
@@ -25,16 +26,16 @@ const Home: NextPage = ({ isConnected }: { isConnected: any }) => {
   //     });
   // }, []);
 
-  // const renderUsers = () => {
-  //   return users.map((user, id) => {
-  //     return (
-  //       <Typography variant="body1" key={id}>
-  //         {/* @ts-ignore */}
-  //         {user.name}
-  //       </Typography>
-  //     );
-  //   });
-  // };
+  const renderUsers = () => {
+    return users.map((user, id) => {
+      return (
+        <Typography variant="body1" key={id}>
+          {/* @ts-ignore */}
+          {user.name}
+        </Typography>
+      );
+    });
+  };
 
   return (
     <div>
@@ -45,26 +46,29 @@ const Home: NextPage = ({ isConnected }: { isConnected: any }) => {
           <Presentation />
           <Planning />
           <Pricing />
-          <Typography>{isConnected ? "oui" : "non"}</Typography>
+          {error ? (
+            <Typography color="error">{JSON.stringify(error)}</Typography>
+          ) : null}
+          <Typography>{users ? "oui" : "non"}</Typography>
+          {renderUsers()}
         </Container>
       </main>
     </div>
   );
 };
 
-export default Home;
+export default Login;
 
 export async function getServerSideProps() {
-  let isConnected;
+  let users: any[] = [];
   try {
-    const client = await clientPromise;
-    isConnected = true;
+    users = await fetchUsers();
+    console.log("ici", users);
   } catch (e) {
     console.log(e);
-    isConnected = false;
   }
 
   return {
-    props: { isConnected },
+    props: { users: JSON.parse(JSON.stringify(users)) },
   };
 }
