@@ -1,26 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { Container, Typography } from "@material-ui/core";
 import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
+
+import fetchApi from "../src/api/fetchApi";
 import Banner from "../src/components/page/Banner";
 
 const Home: NextPage = () => {
   const [users, setUsers] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    console.log("process.env.NODE_ENV =", process.env.NODE_ENV);
-
-    const root =
-      process.env.NODE_ENV === "production"
-        ? "https://test-pilates.herokuapp.com"
-        : "http://localhost:3000";
-
-    fetch(root + "/api/users")
-      .then((res) => res.json())
-      .then(({ users }) => {
-        setUsers(users);
-      });
+    fetchApi("/api/users")
+      .then((response) => {
+        setUsers(response.data.users);
+        setError(null);
+      })
+      .catch((err) => setError(err));
   }, []);
 
   const renderUsers = () => {
@@ -42,6 +37,12 @@ const Home: NextPage = () => {
         <Typography variant="h3">
           Nombre de participants : {users.length}
         </Typography>
+        {error ? (
+          <Typography variant="body1" color="error">
+            error: {JSON.stringify(error)}
+          </Typography>
+        ) : null}
+
         <Typography variant="h5">Liste des participants</Typography>
         {renderUsers()}
       </Container>
