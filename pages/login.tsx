@@ -60,15 +60,18 @@ const Login: NextPage = ({ users }: { users: any[] }) => {
 export default Login;
 
 export async function getServerSideProps() {
-  let users: any[] = [];
+  let result: any[] = [];
+
   try {
-    users = await fetchUsers();
-    console.log("ici", users);
-  } catch (e) {
-    console.log(e);
+    const {
+      data: { users },
+    } = await fetchApi.get("/api/users");
+    result = users;
+  } catch (err) {
+    console.log(err);
   }
 
   return {
-    props: { users: JSON.parse(JSON.stringify(users)) },
+    props: { users: result },
   };
 }
