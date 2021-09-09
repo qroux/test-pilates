@@ -2,29 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Container, Typography } from "@material-ui/core";
 import type { NextPage } from "next";
 
-import fetchApi from "../src/api/fetchApi";
+import nextApi from "../src/api/nextApi";
 import Banner from "../src/components/layout/Banner";
-import Presentation from "../src/components/section/Presentation";
-import Planning from "../src/components/section/Planning";
-import Pricing from "../src/components/section/Pricing";
-
-import { fetchUsers } from "../services/fetchUsers";
 
 // @ts-ignore
 const Login: NextPage = ({ users }: { users: any[] }) => {
-  // const [users, setUsers] = useState([]);
   const [error, setError] = useState(null);
-
-  // useEffect(() => {
-  //   fetchApi("/api/users")
-  //     .then((response) => {
-  //       setUsers(response.data.users);
-  //       setError(null);
-  //     })
-  //     .catch((err) => {
-  //       setError(err);
-  //     });
-  // }, []);
 
   const renderUsers = () => {
     return users.map((user, id) => {
@@ -43,9 +26,8 @@ const Login: NextPage = ({ users }: { users: any[] }) => {
 
       <main>
         <Container maxWidth="lg">
-          <Presentation />
-          <Planning />
-          <Pricing />
+          <Typography variant="h1">Connexion</Typography>
+
           {error ? (
             <Typography color="error">{JSON.stringify(error)}</Typography>
           ) : null}
@@ -60,15 +42,18 @@ const Login: NextPage = ({ users }: { users: any[] }) => {
 export default Login;
 
 export async function getServerSideProps() {
-  let users: any[] = [];
+  let result: any[] = [];
+
   try {
-    users = await fetchUsers();
-    console.log("ici", users);
-  } catch (e) {
-    console.log(e);
+    const {
+      data: { users },
+    } = await nextApi.get("/api/users");
+    result = users;
+  } catch (err) {
+    console.log(err);
   }
 
   return {
-    props: { users: JSON.parse(JSON.stringify(users)) },
+    props: { users: result },
   };
 }

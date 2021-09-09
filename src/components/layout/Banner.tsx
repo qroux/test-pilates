@@ -25,11 +25,7 @@ const Banner = () => {
           alignItems: "center",
         }}
       >
-        <Typography
-          variant="h1"
-          style={{ fontWeight: "bold" }}
-          color="textSecondary"
-        >
+        <Typography variant="h1" style={{ fontWeight: "bold", color: "white" }}>
           Test Banner
         </Typography>
       </div>
