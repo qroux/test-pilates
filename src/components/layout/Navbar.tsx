@@ -37,8 +37,7 @@ const Navbar = () => {
           <Button style={{ padding: "0 1rem", height: "3rem" }}>
             <Typography
               variant="body1"
-              color="textSecondary"
-              style={{ fontWeight: "bold" }}
+              style={{ fontWeight: "bold", color: "white" }}
             >
               {btn.label}
             </Typography>

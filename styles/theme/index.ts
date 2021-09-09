@@ -17,14 +17,12 @@ export const paletteColorsDark = {
 };
 
 export const paletteColorsLight = {
-  primary: "#6886c5",
-  secondary: "#18a18a",
-  // secondary: "#ffbf99",
-  error: "#E44C65",
-  background: "#f2f2f2",
-  textPrimary: "#000000",
-  textSecondary: "#ffffff",
-  // paper: "#e6e6e6",
+  primary: "#3f51b5",
+  secondary: "#f50057",
+  error: "#f44336",
+  background: "#fafafa",
+  textPrimary: "rgba(0, 0, 0, 0.87)",
+  textSecondary: "rgba(0, 0, 0, 0.54)",
 };
 
 export const darkTheme = (dark: boolean): ThemeOptions => {
@@ -62,12 +60,6 @@ export const darkTheme = (dark: boolean): ThemeOptions => {
         "@global": {
           body: {
             transition: "all 0.3s linear",
-          },
-          strong: {
-            color: paletteColors.secondary,
-          },
-          h1: {
-            fontFamily: "Playfair Display!important",
           },
         },
       },

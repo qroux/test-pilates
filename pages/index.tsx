@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container, Typography } from "@material-ui/core";
 import type { NextPage } from "next";
 
-import fetchApi from "../src/api/fetchApi";
+import fetchApi from "../src/api/nextApi";
 import Banner from "../src/components/layout/Banner";
 import Presentation from "../src/components/section/Presentation";
 import Planning from "../src/components/section/Planning";
