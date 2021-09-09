@@ -1,4 +1,4 @@
-import { createTheme, ThemeOptions } from "@material-ui/core/styles";
+import { createMuiTheme, ThemeOptions } from "@material-ui/core/styles";
 
 export const paletteColorsNeutral = {
   dark: "#474747",
@@ -28,11 +28,11 @@ export const paletteColorsLight = {
 export const darkTheme = (dark: boolean): ThemeOptions => {
   const paletteColors = dark ? paletteColorsDark : paletteColorsLight;
 
-  return createTheme({
+  return createMuiTheme({
     palette: {
       type: dark ? "dark" : "light",
       typography: {
-        fontFamily: "Lato",
+        fontFamily: ["Roboto", "Montserrat"].join(","),
       },
       primary: {
         main: paletteColors.primary,

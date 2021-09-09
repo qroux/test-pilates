@@ -1,4 +1,5 @@
 import type { AppProps } from "next/app";
+import Head from "next/head";
 import { useRouter } from "next/dist/client/router";
 import { AnimatePresence } from "framer-motion";
 import React from "react";
