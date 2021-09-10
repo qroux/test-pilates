@@ -7,6 +7,7 @@ import {
   IconButton,
   Menu,
   MenuItem,
+  Container,
 } from "@material-ui/core";
 import React, { useState } from "react";
 import Link from "next/link";
@@ -34,13 +35,10 @@ const Navbar = () => {
     return buttons.map((btn, id) => {
       return (
         <Link href={btn.path} passHref key={id}>
-          <Button style={{ padding: "0 1rem", height: "3rem" }}>
-            <Typography
-              variant="body1"
-              style={{ fontWeight: "bold", color: "white" }}
-            >
-              {btn.label}
-            </Typography>
+          <Button
+            style={{ padding: "0 0.5rem", height: "3rem", fontWeight: "bold" }}
+          >
+            {btn.label}
           </Button>
         </Link>
       );
@@ -58,16 +56,19 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static" color="transparent" elevation={0}>
-      <Toolbar variant="regular">
-        <Link href="/" passHref>
-          <Button style={{ color: "white", fontWeight: "bold" }}>Home</Button>
-        </Link>
-        <div style={{ paddingLeft: "2rem", marginLeft: "auto" }}>
-          {renderButtons()}
-        </div>
+    <Container
+      maxWidth={"xl"}
+      disableGutters={true}
+      style={{ marginBottom: "2rem" }}
+    >
+      <AppBar position="static" color="transparent" elevation={0}>
+        <Toolbar variant="regular">
+          <Link href="/" passHref>
+            <Button style={{ fontWeight: "bold" }}>Home</Button>
+          </Link>
+          <div style={{ marginLeft: "auto" }}>{renderButtons()}</div>
 
-        {/* <IconButton
+          {/* <IconButton
           color="inherit"
           size="medium"
           style={{ marginLeft: "auto" }}
@@ -89,8 +90,9 @@ const Navbar = () => {
           </MenuItem>
           {renderItems()}
         </Menu> */}
-      </Toolbar>
-    </AppBar>
+        </Toolbar>
+      </AppBar>
+    </Container>
   );
 };
 
