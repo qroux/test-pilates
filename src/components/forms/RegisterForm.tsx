@@ -31,8 +31,19 @@ const RegisterForm = () => {
   };
 
   return (
-    <>
-      <Typography variant="body1" color="error">
+    <div
+      style={{
+        marginTop: "2rem",
+        display: "flex",
+        justifyContent: "center",
+        flexDirection: "column",
+      }}
+    >
+      <Typography
+        variant="body1"
+        color="error"
+        style={{ marginBottom: "2rem" }}
+      >
         {error ? JSON.stringify(error) : null}
       </Typography>
 
@@ -48,7 +59,7 @@ const RegisterForm = () => {
           />
         </div>
       ) : (
-        <FormControl>
+        <FormControl fullWidth={true}>
           <TextField
             id="firstName"
             label="prénom"
@@ -75,6 +86,7 @@ const RegisterForm = () => {
             type="submit"
             variant="contained"
             color="secondary"
+            size="large"
             style={{ marginTop: "2rem" }}
             onClick={onSubmitHandler}
             disabled={!email || !firstName || !lastName}
@@ -83,7 +95,7 @@ const RegisterForm = () => {
           </Button>
         </FormControl>
       )}
-    </>
+    </div>
   );
 };
 

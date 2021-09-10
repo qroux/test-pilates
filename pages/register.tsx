@@ -12,8 +12,10 @@ const Register: NextPage = () => {
     <div>
       <main>
         <Container maxWidth="lg">
-          <Typography variant="h1">Register</Typography>
-          <div>test de police</div>
+          <Typography variant="h2" align="center">
+            Register
+          </Typography>
+
           <RegisterForm />
         </Container>
       </main>
