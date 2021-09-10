@@ -31,7 +31,13 @@ const RegisterForm = () => {
   };
 
   return (
-    <>
+    <div
+      style={{
+        marginTop: "2rem",
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
       <Typography variant="body1" color="error">
         {error ? JSON.stringify(error) : null}
       </Typography>
@@ -48,7 +54,7 @@ const RegisterForm = () => {
           />
         </div>
       ) : (
-        <FormControl>
+        <FormControl fullWidth={true}>
           <TextField
             id="firstName"
             label="prénom"
@@ -83,7 +89,7 @@ const RegisterForm = () => {
           </Button>
         </FormControl>
       )}
-    </>
+    </div>
   );
 };
 

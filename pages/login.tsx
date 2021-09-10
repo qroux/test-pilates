@@ -21,19 +21,17 @@ const Login: NextPage = ({ users }: { users: any[] }) => {
   };
 
   return (
-    <div>
-      <main>
-        <Container maxWidth="lg">
-          <Typography variant="h1">Connexion</Typography>
+    <Container maxWidth="lg">
+      <Typography variant="h2" align="center">
+        Connexion
+      </Typography>
 
-          {error ? (
-            <Typography color="error">{JSON.stringify(error)}</Typography>
-          ) : null}
-          <Typography>{users ? "oui" : "non"}</Typography>
-          {renderUsers()}
-        </Container>
-      </main>
-    </div>
+      {error ? (
+        <Typography color="error">{JSON.stringify(error)}</Typography>
+      ) : null}
+      <Typography>{users ? "oui" : "non"}</Typography>
+      {renderUsers()}
+    </Container>
   );
 };
 

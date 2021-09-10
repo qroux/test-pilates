@@ -10,8 +10,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Navbar />
-      {children}
+      <div style={{ minHeight: "90vh", paddingBottom: "10rem" }}>
+        <Navbar />
+        {children}
+      </div>
     </ThemeProvider>
   );
 };
