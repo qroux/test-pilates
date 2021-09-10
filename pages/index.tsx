@@ -8,6 +8,7 @@ import Presentation from "../src/components/section/Presentation";
 import Planning from "../src/components/section/Planning";
 import Pricing from "../src/components/section/Pricing";
 import clientPromise from "../lib/mongodb";
+import Header from "../src/components/Header";
 
 // @ts-ignore
 const Home: NextPage = ({ isConnected }: { isConnected: any }) => {
@@ -38,14 +39,9 @@ const Home: NextPage = ({ isConnected }: { isConnected: any }) => {
 
   return (
     <div>
-      <Banner />
-
       <main>
-        <Container maxWidth="lg">
-          <Presentation />
-          <Planning />
-          <Pricing />
-          <Typography>{isConnected ? "oui" : "non"}</Typography>
+        <Container maxWidth="xl">
+          <Header />
         </Container>
       </main>
     </div>

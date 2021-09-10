@@ -22,8 +22,6 @@ const Login: NextPage = ({ users }: { users: any[] }) => {
 
   return (
     <div>
-      <Banner />
-
       <main>
         <Container maxWidth="lg">
           <Typography variant="h1">Connexion</Typography>

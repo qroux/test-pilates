@@ -10,8 +10,6 @@ import nextApi from "../src/api/nextApi";
 const Register: NextPage = () => {
   return (
     <div>
-      <Banner />
-
       <main>
         <Container maxWidth="lg">
           <Typography variant="h1">Register</Typography>
