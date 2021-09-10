@@ -36,9 +36,14 @@ const RegisterForm = () => {
         marginTop: "2rem",
         display: "flex",
         justifyContent: "center",
+        flexDirection: "column",
       }}
     >
-      <Typography variant="body1" color="error">
+      <Typography
+        variant="body1"
+        color="error"
+        style={{ marginBottom: "2rem" }}
+      >
         {error ? JSON.stringify(error) : null}
       </Typography>
 
@@ -81,6 +86,7 @@ const RegisterForm = () => {
             type="submit"
             variant="contained"
             color="secondary"
+            size="large"
             style={{ marginTop: "2rem" }}
             onClick={onSubmitHandler}
             disabled={!email || !firstName || !lastName}
