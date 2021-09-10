@@ -1,4 +1,43 @@
 import clientPromise from "../lib/mongodb";
+import { userSchema } from "../lib/schemas";
+
+export const setUsersSchema = async () => {
+  const client = await clientPromise;
+
+  try {
+    const usersCollection = await client
+      .db()
+      .listCollections({ name: "users" })
+      .toArray();
+
+    if (usersCollection[0]) return "Users collection already set";
+
+    await client.db().createCollection("users", userSchema);
+    await client
+      .db()
+      .collection("users")
+      .createIndex({ email: 1 }, { unique: true });
+
+    return "Users collection + validation Schema created";
+  } catch (err) {
+    console.log("USER SCHEMA ERROR =", err);
+    return err;
+  }
+};
+
+export const createUser = async (inputs: Inputs) => {
+  const client = await clientPromise;
+
+  try {
+    const response = await client.db().collection("users").insertOne(inputs);
+
+    return { created: true, content: response };
+  } catch (err: any) {
+    return err.code === 11000
+      ? { created: false, content: "Email déjà utilisé" }
+      : { created: false, content: err.message };
+  }
+};
 
 export const fetchUsers = async () => {
   const client = await clientPromise;
@@ -19,17 +58,3 @@ interface Inputs {
   lastName: string;
   email: string;
 }
-
-export const createUser = async (inputs: Inputs) => {
-  const client = await clientPromise;
-
-  try {
-    const response = await client.db().collection("users").insertOne(inputs);
-    console.log("response =", response);
-    return response;
-  } catch (err: any) {
-    return Object.keys(err.keyPattern)[0] === "email"
-      ? { details: "Email déjà utilisé", error: err }
-      : { details: "Unknown error", error: err };
-  }
-};

@@ -13,9 +13,9 @@ export default async function handler(
   if (req.method === "POST") {
     const response = await createUser(req.body);
 
-    return response.insertedId
-      ? res.json({ user: response })
-      : res.status(400).send(response.details);
+    return response.created
+      ? res.json({ user: response.content })
+      : res.status(400).send(response.content);
   }
   return res.redirect("/");
 }
