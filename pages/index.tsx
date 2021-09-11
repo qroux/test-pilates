@@ -9,6 +9,7 @@ import Planning from "../src/components/section/Planning";
 import Pricing from "../src/components/section/Pricing";
 import clientPromise from "../lib/mongodb";
 import Header from "../src/components/Header";
+import AnimatedPage from "../src/components/layout/AnimatedPage";
 
 // @ts-ignore
 const Home: NextPage = ({ isConnected }: { isConnected: any }) => {
@@ -38,13 +39,13 @@ const Home: NextPage = ({ isConnected }: { isConnected: any }) => {
   // };
 
   return (
-    <div>
+    <AnimatedPage>
       <main>
         <Container maxWidth="xl">
           <Header />
         </Container>
       </main>
-    </div>
+    </AnimatedPage>
   );
 };
 

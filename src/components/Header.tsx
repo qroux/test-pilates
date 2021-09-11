@@ -1,5 +1,6 @@
 import { Box, Button, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
+import Link from "next/link";
 
 const useStyles = makeStyles((theme) => ({
   headerContainer: {
@@ -82,14 +83,16 @@ const Header = () => {
         <Typography variant="h2" style={{ fontWeight: "bold" }}>
           Random SUB Title
         </Typography>
-        <Button
-          variant="contained"
-          color="secondary"
-          size="large"
-          style={{ marginTop: "5rem", fontWeight: "bold" }}
-        >
-          Register Now
-        </Button>
+        <Link href="/register" passHref>
+          <Button
+            variant="contained"
+            color="secondary"
+            size="large"
+            style={{ marginTop: "5rem", fontWeight: "bold" }}
+          >
+            Register Now
+          </Button>
+        </Link>
       </div>
 
       <div
