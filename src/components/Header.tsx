@@ -31,14 +31,24 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: "2rem",
     },
   },
-  image: {
+  frame: {
     [theme.breakpoints.up("md")]: {
-      top: "3rem",
-      left: "3rem",
+      top: "-1.5rem",
+      left: "-1.5rem",
     },
     [theme.breakpoints.down("sm")]: {
-      top: "1rem",
-      left: "1rem",
+      top: "-0.5rem",
+      left: "-0.5rem",
+    },
+  },
+  image: {
+    [theme.breakpoints.up("md")]: {
+      top: "1.5rem",
+      left: "1.5rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      top: "0.5rem",
+      left: "0.5rem",
     },
   },
 }));
@@ -89,7 +99,9 @@ const Header = () => {
         }}
       >
         <div
+          className={classes.frame}
           style={{
+            position: "absolute",
             height: "100%",
             width: "100%",
             zIndex: -1,
