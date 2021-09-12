@@ -6,7 +6,7 @@ const ViewportContainer = ({ children }: { children: React.ReactNode }) => {
   const options = {
     root: null,
     rootMargin: "0px",
-    threshold: 1,
+    threshold: 0.7,
   };
 
   useEffect(() => {
@@ -17,7 +17,6 @@ const ViewportContainer = ({ children }: { children: React.ReactNode }) => {
       if (entry.isIntersecting && target) {
         setIsVisible(entry.isIntersecting);
         observer.unobserve(target);
-        console.log("Observer removed");
       }
     }, options);
 
@@ -28,10 +27,10 @@ const ViewportContainer = ({ children }: { children: React.ReactNode }) => {
     <div
       ref={ref}
       style={{
-        transition: "1s",
+        transition: "0.5s",
         opacity: isVisible ? 1 : 0,
         transitionTimingFunction: "ease-out",
-        transitionDelay: "1s",
+        transitionDelay: "0.5s",
       }}
     >
       {children}
