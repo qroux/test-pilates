@@ -64,7 +64,7 @@ const Header = () => {
         display: "flex",
         justifyContent: "space-between",
         width: "100%",
-        borderColor: "primary.main",
+        marginBottom: "10rem",
       }}
     >
       <div

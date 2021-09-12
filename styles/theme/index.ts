@@ -31,9 +31,7 @@ export const darkTheme = (dark: boolean): ThemeOptions => {
   return createMuiTheme({
     palette: {
       type: dark ? "dark" : "light",
-      typography: {
-        fontFamily: ["Roboto", "Montserrat"].join(","),
-      },
+
       primary: {
         main: paletteColors.primary,
       },
@@ -53,6 +51,12 @@ export const darkTheme = (dark: boolean): ThemeOptions => {
         // @ts-ignore
         dark: paletteColorsNeutral.dark,
         light: paletteColorsNeutral.light,
+      },
+    },
+    typography: {
+      fontFamily: ["Roboto"].join(","),
+      h2: {
+        fontFamily: "Dancing Script",
       },
     },
     overrides: {
