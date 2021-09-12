@@ -6,6 +6,7 @@ import clientPromise from "../lib/mongodb";
 import Header from "../src/components/page/index/Header";
 import AnimatedPage from "../src/components/layout/AnimatedPage";
 import Presentation from "../src/components/page/index/Presentation";
+import ViewportContainer from "../src/components/layout/ViewPortContainer";
 
 // @ts-ignore
 const Home: NextPage = ({ isConnected }: { isConnected: any }) => {
@@ -39,7 +40,22 @@ const Home: NextPage = ({ isConnected }: { isConnected: any }) => {
       <main>
         <Container maxWidth="xl">
           <Header />
-          <Presentation />
+          <div style={{ height: "20vh" }} />
+          <ViewportContainer>
+            <Presentation />
+          </ViewportContainer>
+          <ViewportContainer>
+            <Presentation />
+          </ViewportContainer>
+          <ViewportContainer>
+            <Presentation />
+          </ViewportContainer>
+          <ViewportContainer>
+            <Presentation />
+          </ViewportContainer>
+          <ViewportContainer>
+            <Presentation />
+          </ViewportContainer>
         </Container>
       </main>
     </AnimatedPage>
