@@ -54,7 +54,7 @@ const RegisterForm = () => {
         >
           <Lottie
             speed={0.7}
-            config={{ animationData: animation, loop: true }}
+            config={{ animationData: animation, loop: false }}
             style={{ height: "10rem", width: "10rem" }}
           />
         </div>
