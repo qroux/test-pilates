@@ -4,15 +4,18 @@ import type { NextPage } from "next";
 
 import nextApi from "../src/api/nextApi";
 import Banner from "../src/components/layout/Banner";
+import AnimatedPage from "../src/components/layout/AnimatedPage";
 
 // @ts-ignore
 const Login: NextPage = () => {
   return (
-    <Container maxWidth="lg">
-      <Typography variant="h2" align="center">
-        Connexion
-      </Typography>
-    </Container>
+    <AnimatedPage>
+      <Container maxWidth="lg">
+        <Typography variant="h2" align="center">
+          Connexion
+        </Typography>
+      </Container>
+    </AnimatedPage>
   );
 };
 

@@ -9,7 +9,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
+      {/* <CssBaseline /> */}
       <div style={{ minHeight: "90vh", paddingBottom: "10rem" }}>
         <Navbar />
         {children}

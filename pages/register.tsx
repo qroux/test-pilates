@@ -5,11 +5,12 @@ import type { NextPage } from "next";
 import Banner from "../src/components/layout/Banner";
 import RegisterForm from "../src/components/forms/RegisterForm";
 import nextApi from "../src/api/nextApi";
+import AnimatedPage from "../src/components/layout/AnimatedPage";
 
 // @ts-ignore
 const Register: NextPage = () => {
   return (
-    <div>
+    <AnimatedPage>
       <main>
         <Container maxWidth="lg">
           <Typography variant="h2" align="center">
@@ -19,7 +20,7 @@ const Register: NextPage = () => {
           <RegisterForm />
         </Container>
       </main>
-    </div>
+    </AnimatedPage>
   );
 };
 

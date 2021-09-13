@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Container, Typography } from "@material-ui/core";
+import React from "react";
+import { Container } from "@material-ui/core";
 import type { NextPage } from "next";
 
-import fetchApi from "../src/api/nextApi";
-import Banner from "../src/components/layout/Banner";
-import Presentation from "../src/components/section/Presentation";
-import Planning from "../src/components/section/Planning";
-import Pricing from "../src/components/section/Pricing";
 import clientPromise from "../lib/mongodb";
-import Header from "../src/components/Header";
+import Header from "../src/components/page/index/Header";
+import AnimatedPage from "../src/components/layout/AnimatedPage";
+import Presentation from "../src/components/page/index/Presentation";
+import ViewportContainer from "../src/components/layout/ViewPortContainer";
 
 // @ts-ignore
 const Home: NextPage = ({ isConnected }: { isConnected: any }) => {
@@ -38,13 +36,29 @@ const Home: NextPage = ({ isConnected }: { isConnected: any }) => {
   // };
 
   return (
-    <div>
+    <AnimatedPage>
       <main>
         <Container maxWidth="xl">
           <Header />
+          <div style={{ height: "20vh" }} />
+          <ViewportContainer>
+            <Presentation />
+          </ViewportContainer>
+          <ViewportContainer>
+            <Presentation />
+          </ViewportContainer>
+          <ViewportContainer>
+            <Presentation />
+          </ViewportContainer>
+          <ViewportContainer>
+            <Presentation />
+          </ViewportContainer>
+          <ViewportContainer>
+            <Presentation />
+          </ViewportContainer>
         </Container>
       </main>
-    </div>
+    </AnimatedPage>
   );
 };
 
