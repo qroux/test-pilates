@@ -1,12 +1,13 @@
-import React from "react";
-import { Container } from "@material-ui/core";
-import type { NextPage } from "next";
+import React from 'react';
+import { Container } from '@material-ui/core';
+import type { NextPage } from 'next';
 
-import clientPromise from "../lib/mongodb";
-import Header from "../src/components/page/index/Header";
-import AnimatedPage from "../src/components/layout/AnimatedPage";
-import Presentation from "../src/components/page/index/Presentation";
-import ViewportContainer from "../src/components/layout/ViewPortContainer";
+import clientPromise from '../lib/mongodb';
+import Header from '../src/components/page/index/Header';
+import AnimatedPage from '../src/components/layout/AnimatedPage';
+import Presentation from '../src/components/page/index/Presentation';
+import ViewportContainer from '../src/components/layout/ViewPortContainer';
+import DragAndDrop from '../src/components/page/index/DragAndDrop';
 
 // @ts-ignore
 const Home: NextPage = ({ isConnected }: { isConnected: any }) => {
@@ -38,24 +39,16 @@ const Home: NextPage = ({ isConnected }: { isConnected: any }) => {
   return (
     <AnimatedPage>
       <main>
-        <Container maxWidth="xl">
+        <Container maxWidth='xl'>
           <Header />
-          <div style={{ height: "20vh" }} />
+          <div style={{ height: '20vh' }} />
           <ViewportContainer>
             <Presentation />
           </ViewportContainer>
           <ViewportContainer>
             <Presentation />
           </ViewportContainer>
-          <ViewportContainer>
-            <Presentation />
-          </ViewportContainer>
-          <ViewportContainer>
-            <Presentation />
-          </ViewportContainer>
-          <ViewportContainer>
-            <Presentation />
-          </ViewportContainer>
+          <DragAndDrop />
         </Container>
       </main>
     </AnimatedPage>

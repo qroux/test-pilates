@@ -8,19 +8,20 @@ import {
   Menu,
   MenuItem,
   Container,
-} from "@material-ui/core";
-import React, { useState } from "react";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import MenuIcon from "@material-ui/icons/Menu";
+} from '@material-ui/core';
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import MenuIcon from '@material-ui/icons/Menu';
 
 const Navbar = () => {
   const router = useRouter();
   const [anchorEl, setAnchorEl] = useState(null);
 
   const buttons = [
-    { label: "Inscription", path: "/register" },
-    { label: "Connexion", path: "/login" },
+    { label: 'drag', path: '/drag' },
+    { label: 'Inscription', path: '/register' },
+    { label: 'Connexion', path: '/login' },
   ];
 
   const handleClick = (event: any) => {
@@ -36,8 +37,7 @@ const Navbar = () => {
       return (
         <Link href={btn.path} passHref key={id}>
           <Button
-            style={{ padding: "0 0.5rem", height: "3rem", fontWeight: "bold" }}
-          >
+            style={{ padding: '0 0.5rem', height: '3rem', fontWeight: 'bold' }}>
             {btn.label}
           </Button>
         </Link>
@@ -49,7 +49,7 @@ const Navbar = () => {
     return buttons.map((button, id) => {
       return (
         <MenuItem onClick={() => handleClose(button.path)} key={id}>
-          <Typography variant="button">{button.label}</Typography>
+          <Typography variant='button'>{button.label}</Typography>
         </MenuItem>
       );
     });
@@ -57,16 +57,15 @@ const Navbar = () => {
 
   return (
     <Container
-      maxWidth={"xl"}
+      maxWidth={'xl'}
       disableGutters={true}
-      style={{ marginBottom: "2rem" }}
-    >
-      <AppBar position="static" color="transparent" elevation={0}>
-        <Toolbar variant="regular">
-          <Link href="/" passHref>
-            <Button style={{ fontWeight: "bold" }}>Home</Button>
+      style={{ marginBottom: '2rem' }}>
+      <AppBar position='static' color='transparent' elevation={0}>
+        <Toolbar variant='regular'>
+          <Link href='/' passHref>
+            <Button style={{ fontWeight: 'bold' }}>Home</Button>
           </Link>
-          <div style={{ marginLeft: "auto" }}>{renderButtons()}</div>
+          <div style={{ marginLeft: 'auto' }}>{renderButtons()}</div>
 
           {/* <IconButton
           color="inherit"
