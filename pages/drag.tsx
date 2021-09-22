@@ -55,8 +55,12 @@ const Drag = () => {
   const [items, setItems] = useState(getItems(10));
 
   useEffect(() => {
-    setIsReady(true);
-  }, []);
+    if (!isReady) setIsReady(true);
+
+    return () => {
+      console.log('last persisting order =', items);
+    };
+  }, [items]);
 
   const onDragEnd = (result: DropResult) => {
     // dropped outside the list
