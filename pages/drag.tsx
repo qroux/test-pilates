@@ -58,7 +58,7 @@ const Drag = () => {
     if (!isReady) setIsReady(true);
 
     return () => {
-      console.log('last persisting order', items);
+      console.log('last persisting order ', items);
     };
   }, [items]);
 
