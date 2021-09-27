@@ -48,7 +48,6 @@ const Home: NextPage = ({ isConnected }: { isConnected: any }) => {
           <ViewportContainer>
             <Presentation />
           </ViewportContainer>
-          <DragAndDrop />
         </Container>
       </main>
     </AnimatedPage>

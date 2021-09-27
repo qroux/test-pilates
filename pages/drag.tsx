@@ -6,6 +6,7 @@ import {
   DropResult,
   DraggableLocation,
 } from 'react-beautiful-dnd';
+import Portal from '../src/components/page/drag/Portal';
 
 // Interface
 interface Item {
@@ -118,7 +119,7 @@ const Drag: FC = () => {
   }
 
   return (
-    <div>
+    <div id='modal-root'>
       {ready ? (
         <div>
           <button
@@ -189,6 +190,7 @@ const Drag: FC = () => {
           </div>
         </div>
       ) : null}
+      <Portal />
     </div>
   );
 };

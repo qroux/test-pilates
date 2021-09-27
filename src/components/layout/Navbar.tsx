@@ -59,11 +59,14 @@ const Navbar = () => {
     <Container
       maxWidth={'xl'}
       disableGutters={true}
-      style={{ marginBottom: '2rem' }}>
+      style={{ marginBottom: '2rem' }}
+      id='navbar'>
       <AppBar position='static' color='transparent' elevation={0}>
         <Toolbar variant='regular'>
           <Link href='/' passHref>
-            <Button style={{ fontWeight: 'bold' }}>Home</Button>
+            <Button style={{ fontWeight: 'bold' }} id='home'>
+              Home
+            </Button>
           </Link>
           <div style={{ marginLeft: 'auto' }}>{renderButtons()}</div>
 
