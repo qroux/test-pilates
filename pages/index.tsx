@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Container } from '@material-ui/core';
 import type { NextPage } from 'next';
 
@@ -7,33 +7,15 @@ import Header from '../src/components/page/index/Header';
 import AnimatedPage from '../src/components/layout/AnimatedPage';
 import Presentation from '../src/components/page/index/Presentation';
 import ViewportContainer from '../src/components/layout/ViewPortContainer';
+import { Context as AppContext } from '../src/context/AppContext';
 
-// @ts-ignore
-const Home: NextPage = ({ isConnected }: { isConnected: any }) => {
-  // const [users, setUsers] = useState([]);
-  // const [error, setError] = useState(null);
+const Home: NextPage = () => {
+  // @ts-ignore
+  const { state, logIn } = useContext(AppContext);
 
-  // useEffect(() => {
-  //   fetchApi("/api/users")
-  //     .then((response) => {
-  //       setUsers(response.data.users);
-  //       setError(null);
-  //     })
-  //     .catch((err) => {
-  //       setError(err);
-  //     });
-  // }, []);
-
-  // const renderUsers = () => {
-  //   return users.map((user, id) => {
-  //     return (
-  //       <Typography variant="body1" key={id}>
-  //         {/* @ts-ignore */}
-  //         {user.name}
-  //       </Typography>
-  //     );
-  //   });
-  // };
+  useEffect(() => {
+    logIn();
+  }, []);
 
   return (
     <AnimatedPage>
@@ -54,18 +36,3 @@ const Home: NextPage = ({ isConnected }: { isConnected: any }) => {
 };
 
 export default Home;
-
-export async function getServerSideProps() {
-  let isConnected;
-  try {
-    const client = await clientPromise;
-    isConnected = true;
-  } catch (e) {
-    console.log(e);
-    isConnected = false;
-  }
-
-  return {
-    props: { isConnected },
-  };
-}
