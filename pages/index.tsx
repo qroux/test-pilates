@@ -7,7 +7,6 @@ import Header from '../src/components/page/index/Header';
 import AnimatedPage from '../src/components/layout/AnimatedPage';
 import Presentation from '../src/components/page/index/Presentation';
 import ViewportContainer from '../src/components/layout/ViewPortContainer';
-import DragAndDrop from '../src/components/page/index/DragAndDrop';
 
 // @ts-ignore
 const Home: NextPage = ({ isConnected }: { isConnected: any }) => {
