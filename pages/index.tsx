@@ -12,10 +12,9 @@ import { Context as AppContext } from '../src/context/AppContext';
 const Home: NextPage = () => {
   const { state, logIn } = useContext(AppContext);
 
-  useEffect(() => {
-    logIn();
-    console.log('Index state =', state);
-  }, []);
+  // useEffect(() => {
+  //   logIn();
+  // }, []);
 
   return (
     <AnimatedPage>
@@ -23,6 +22,8 @@ const Home: NextPage = () => {
         <Container maxWidth='xl'>
           <Header />
           <div style={{ height: '20vh' }} />
+          <button onClick={logIn}>connect</button>
+          {state.loggedIn ? <h1>co</h1> : <h1>deco</h1>}
           <ViewportContainer>
             <Presentation />
           </ViewportContainer>
