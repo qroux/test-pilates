@@ -1,6 +1,6 @@
 import { ActionTypes } from '../actions/actionTypes';
 
-export interface State {
+export interface AppState {
   loggedIn: boolean;
 }
 
@@ -16,11 +16,11 @@ export interface ReducerAction {
 export interface ContextParams {
   reducer: any;
   actions: Actions;
-  initialState: State;
+  initialState: AppState;
 }
 
 export interface ReducerParams {
-  state: State;
+  state: AppState;
   action: {
     type: ActionTypes;
     payload: any;
@@ -28,6 +28,6 @@ export interface ReducerParams {
 }
 
 export interface FullContext {
-  state: State;
-  logIn: () => void;
+  state: AppState;
+  logIn?: () => void;
 }

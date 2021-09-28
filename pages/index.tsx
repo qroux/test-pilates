@@ -10,11 +10,11 @@ import ViewportContainer from '../src/components/layout/ViewPortContainer';
 import { Context as AppContext } from '../src/context/AppContext';
 
 const Home: NextPage = () => {
-  // @ts-ignore
   const { state, logIn } = useContext(AppContext);
 
   useEffect(() => {
     logIn();
+    console.log('Index state =', state);
   }, []);
 
   return (

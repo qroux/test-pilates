@@ -1,11 +1,9 @@
 import { ActionTypes } from './actions/actionTypes';
 import createDataContext from './createDataContext';
-import { Actions, ReducerAction, ReducerParams, State } from './interfaces';
+import { Actions, ReducerAction, ReducerParams, AppState } from './interfaces';
 import { logIn } from './actions/appActions';
 
-const AppReducer = (state: State, action: ReducerAction) => {
-  console.log('reducer', action);
-
+const AppReducer = (state: AppState, action: ReducerAction): AppState => {
   switch (action.type) {
     case ActionTypes.LOG_IN:
       return { ...state, loggedIn: !state.loggedIn };
